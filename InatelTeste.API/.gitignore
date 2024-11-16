@@ -1,0 +1,58 @@
+# Ignore .NET Core build output
+bin/
+obj/
+
+# User-specific files
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# JetBrains Rider
+.idea/
+
+# ASP.NET Core temporary files
+project.lock.json
+project.fragment.lock.json
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]ist-Release/
+[Dd]ist-Debug/
+bin/
+obj/
+
+# Microsoft Visual Studio for Mac
+.vscode/
+
+# Npm packages
+node_modules/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
