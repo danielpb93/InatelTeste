@@ -11,5 +11,7 @@ namespace InatelTeste.Application.dtos
         public string Country { get; set; }
         public List<string> Domains { get; set; }
         public string Name { get; set; }
+        public string StateProvince { get; set; }
+        public string CountryCode { get; set; }
     }
 }

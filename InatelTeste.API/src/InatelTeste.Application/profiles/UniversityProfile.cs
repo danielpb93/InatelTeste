@@ -13,14 +13,18 @@ namespace InatelTeste.Application.profiles
         public UniversityProfile()
         {
             CreateMap<UniversityExternalAPIDto, University>()
-            .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.country))
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.name))
-            .ForMember(dest => dest.WebPages, opt => opt.MapFrom(src => src.web_pages.Select(url => new WebPage { Url = url }).ToList()))
-            .ForMember(dest => dest.Domains, opt => opt.MapFrom(src => src.domains.Select(name => new InatelTeste.Domain.Entities.Domain { Name = name }).ToList()));
+            .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Country))
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.WebPages, opt => opt.MapFrom(src => src.WebPages.Select(url => new WebPage { Url = url }).ToList()))
+            .ForMember(dest => dest.Domains, opt => opt.MapFrom(src => src.Domains.Select(name => new InatelTeste.Domain.Entities.Domain { Name = name }).ToList()))
+            .ForMember(dest => dest.StateProvince, opt => opt.MapFrom(src => src.StateProvince))
+            .ForMember(dest => dest.CountryCode, opt => opt.MapFrom(src => src.CountryCode));
 
             CreateMap<University, UniversityResponseDto>()
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
             .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Country))
+            .ForMember(dest => dest.StateProvince, opt => opt.MapFrom(src => src.StateProvince))
+            .ForMember(dest => dest.CountryCode, opt => opt.MapFrom(src => src.CountryCode))
             .ForMember(dest => dest.Domains, opt => opt.MapFrom(src => src.Domains.Select(d => d.Name).ToList()))
             .ForMember(dest => dest.WebPages, opt => opt.MapFrom(src => src.WebPages.Select(w => w.Url).ToList()));
         }

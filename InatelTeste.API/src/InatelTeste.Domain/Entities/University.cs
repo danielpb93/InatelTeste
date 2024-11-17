@@ -12,5 +12,7 @@ namespace InatelTeste.Domain.Entities
         public string Country { get; set; } = null!;
         public List<Domain> Domains { get; set; } = new List<Domain>();
         public string Name { get; set; } = null!;
+        public string? StateProvince { get; set; }
+        public string? CountryCode { get; set; }
     }
 }
