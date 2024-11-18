@@ -31,6 +31,13 @@ namespace InatelTeste.Infrastructure.repositories
                 .Take(10)
                 .ToListAsync();
 
+        public async Task<IEnumerable<University>> GetAllByCountryAsync(string country) =>
+            await _context.University
+                .Include(u => u.WebPages)
+                .Include(u => u.Domains)
+                .Where(u => u.Country.ToLower() == country.ToLower())
+                .ToListAsync();
+
         public async Task<bool> AnyAsync() =>
             await _context.University.AnyAsync();
 
