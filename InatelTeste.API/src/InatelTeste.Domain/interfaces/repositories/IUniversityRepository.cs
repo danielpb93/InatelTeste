@@ -10,7 +10,7 @@ namespace InatelTeste.Domain.interfaces.repositories
     {
         Task AddRangeAsync(IEnumerable<University> entities);
         Task<IEnumerable<University>> GetAllAsync();
-        Task<IEnumerable<University>> GetAllByCountryAsync(string country);
+        Task<IEnumerable<University>> GetAllByCountryAsync(string country, string? name = "");
         Task<bool> AnyAsync();
     }
 }
