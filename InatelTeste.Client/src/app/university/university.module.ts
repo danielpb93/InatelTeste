@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -24,7 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     UniversityService

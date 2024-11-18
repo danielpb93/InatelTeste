@@ -1,5 +1,8 @@
 .main{
     padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .busca{
         display: flex;
@@ -62,5 +65,13 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+        flex: 1;
+    }
+
+    .loading{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

@@ -9,7 +9,12 @@
         </div>
         <button mat-button type="button" class="busca-button" (click)="buscarUniversidades()">Buscar</button>
     </div>
-    <div *ngIf="(universidadesBrasileiras$ | async) as universidades" class="lista-universidades">
+    <div *ngIf="(universidadesBrasileiras$ | async) as universidades; else loading" class="lista-universidades">
         <app-university-card *ngFor="let universidade of universidades" [universidade]="universidade" (click)="abrirCardDetalhes(universidade)"></app-university-card>
     </div>
+    <ng-template #loading>
+        <div class="loading">
+            <mat-spinner color="blue" [diameter]="300" [strokeWidth]="10"></mat-spinner>
+        </div>
+    </ng-template>
 </main>
