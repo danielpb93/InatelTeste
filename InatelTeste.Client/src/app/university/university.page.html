@@ -1,0 +1,5 @@
+<main class="main">
+    <div *ngIf="(universidadesBrasileiras$ | async) as universidades" class="lista-universidades">
+        <app-university-card *ngFor="let universidade of universidades" [universidade]="universidade" (click)="abrirCardDetalhes(universidade)"></app-university-card>
+    </div>
+</main>

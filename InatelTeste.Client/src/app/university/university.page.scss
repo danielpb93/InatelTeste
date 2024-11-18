@@ -1,0 +1,8 @@
+.main{
+    padding: 20px;
+    .lista-universidades{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
