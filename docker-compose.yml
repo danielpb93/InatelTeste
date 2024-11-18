@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mysql:
     image: mysql:8.0
-    container_name: inatel_teste_mysql
+    container_name: inatel_mysql
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: inatelDB
@@ -12,19 +12,19 @@ services:
     ports:
       - "3306:3306"
     # networks:
-    #   - backend
+    #   - app-network
     volumes:
       - mysql-data:/var/lib/mysql
 
   myapp:
     build:
       context: ./InatelTeste.API
-    container_name: inatel_teste_api
+    container_name: inatel_api
     depends_on:
       - mysql
     environment:
       - ASPNETCORE_URLS=http://+:5000
-    #   - ConnectionStrings__DefaultConnection=Server=mysql;Port=3306;Database=my_database;User=root;Password=rootpassword;
+      - ConnectionStrings__Default=Server=mysql;Port=3306;Database=inatelDB;User=root;Password=rootpassword;
     ports:
       - "5000:5000"
     command: >
@@ -33,10 +33,19 @@ services:
         dotnet ef database update --project InatelTeste.Infrastructure/InatelTeste.Infrastructure.csproj --startup-project InatelTeste.API/InatelTeste.API.csproj &&
         dotnet YourApiProject.dll"
     # networks:
-    #   - backend
+    #   - app-network
+
+  angular-app:
+    build:
+      context: ./InatelTeste.Client
+    container_name: inatel_client
+    ports:
+      - "4200:4200"  # Mapeia a porta 4200 do contêiner para a porta 4200 da máquina host
+    # networks:
+    #   - app-network
 
 # networks:
-#   backend:
+#   app-network:
 #     driver: bridge
 
 volumes:
