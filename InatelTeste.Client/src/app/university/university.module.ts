@@ -7,6 +7,8 @@ import { UniversityPage } from './university.page';
 import { UniversityCardDetalhesComponent } from './components/university-card-detalhes/university-card-detalhes.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -20,7 +22,9 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     UniversityRoutingModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [
     UniversityService

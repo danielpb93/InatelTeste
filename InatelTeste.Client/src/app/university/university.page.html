@@ -1,4 +1,14 @@
 <main class="main">
+    <div class="busca">
+        <div class="busca-universidade" (click)="aplicarFocoInput()">
+            <mat-icon fontIcon="menu"></mat-icon>
+            <div class="input-container">
+                <input matInput placeholder="buscar universidade" #buscaUniversidade (keyup.enter)="buscarUniversidades()">
+            </div>  
+            <mat-icon fontIcon="search"></mat-icon>    
+        </div>
+        <button mat-button type="button" class="busca-button" (click)="buscarUniversidades()">Buscar</button>
+    </div>
     <div *ngIf="(universidadesBrasileiras$ | async) as universidades" class="lista-universidades">
         <app-university-card *ngFor="let universidade of universidades" [universidade]="universidade" (click)="abrirCardDetalhes(universidade)"></app-university-card>
     </div>

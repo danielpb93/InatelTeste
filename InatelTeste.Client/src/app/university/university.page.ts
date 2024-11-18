@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UniversityService } from './services/university.service';
 import { UniversityResponse } from './models/university-response.model';
 import { Observable } from 'rxjs';
@@ -13,6 +13,7 @@ import { UniversityCardDetalhesComponent } from './components/university-card-de
 export class UniversityPage implements OnInit {
 
   universidadesBrasileiras$: Observable<UniversityResponse[]>
+  @ViewChild('buscaUniversidade') buscaUniversidade: ElementRef;
 
   constructor(
     private universityService: UniversityService,
@@ -27,6 +28,15 @@ export class UniversityPage implements OnInit {
     this.dialog.open(UniversityCardDetalhesComponent, {
       data: universidade
     })
+  }
+
+  aplicarFocoInput(){
+    this.buscaUniversidade.nativeElement.focus()
+  }
+
+  buscarUniversidades(){
+    const filtro = this.buscaUniversidade.nativeElement.value
+    this.universidadesBrasileiras$ = this.universityService.getUniversidadesBrasileiras(filtro)
   }
 
 }
