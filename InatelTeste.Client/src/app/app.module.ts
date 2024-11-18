@@ -14,8 +14,7 @@ import { HeaderComponent } from './layout/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    
+    HttpClientModule
 ],
   providers: [],
   bootstrap: [AppComponent]
