@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 class="title">{{data.name}}</h1>
+    <div class="conteudo">
+        <div>País: {{data.country}} - {{data.countryCode}}</div>
+        <div class="conteudo-lista">
+            <div> Dominio(s): </div>
+            <ul>
+                <li *ngFor="let dominio of data.domains"> {{dominio}} </li>
+            </ul>
+        </div>
+        <div class="conteudo-lista">
+            <div> URL(s): </div>
+            <ul>
+                <li *ngFor="let url of data.webPages"> <a [href]="url" target="_blank">{{url}}</a> </li>
+            </ul>
+        </div>
+        <div>Província: {{data.stateProvince ?? "Não informado"}}</div>
+    </div>
+    <div class="action">
+        <button mat-button type="button" (click)="fechar()">fechar</button>
+    </div>
+</div>

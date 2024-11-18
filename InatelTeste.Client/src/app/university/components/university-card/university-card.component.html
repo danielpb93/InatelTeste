@@ -1,0 +1,12 @@
+<div class="container">
+    <h1 class="title">{{universidade.name}}</h1>
+    <div class="country">
+        <div class="country-text">{{universidade.country}}</div>
+        <div><span class="fi" [ngClass]="'fi-' + universidade.countryCode?.toLowerCase()"></span></div>
+    </div>
+    <div>
+        <ul class="lista-urls">
+            <li *ngFor="let url of universidade.webPages"> <a [href]="url" target="_blank" (click)="$event.stopPropagation()">{{ url }}</a></li>
+        </ul>
+    </div>
+</div>
