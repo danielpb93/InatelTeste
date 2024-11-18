@@ -11,12 +11,10 @@ services:
       MYSQL_PASSWORD: defaultPassword
     ports:
       - "3306:3306"
-    # networks:
-    #   - app-network
     volumes:
       - mysql-data:/var/lib/mysql
 
-  myapp:
+  api:
     build:
       context: ./InatelTeste.API
     container_name: inatel_api
@@ -27,26 +25,13 @@ services:
       - ConnectionStrings__Default=Server=mysql;Port=3306;Database=inatelDB;User=root;Password=rootpassword;
     ports:
       - "5000:5000"
-    command: >
-      sh -c "
-        wait-for-it mysql:3306 --timeout=60 -- echo 'MySQL is up!';
-        dotnet ef database update --project InatelTeste.Infrastructure/InatelTeste.Infrastructure.csproj --startup-project InatelTeste.API/InatelTeste.API.csproj &&
-        dotnet YourApiProject.dll"
-    # networks:
-    #   - app-network
 
   angular-app:
     build:
       context: ./InatelTeste.Client
     container_name: inatel_client
     ports:
-      - "4200:4200"  # Mapeia a porta 4200 do contêiner para a porta 4200 da máquina host
-    # networks:
-    #   - app-network
-
-# networks:
-#   app-network:
-#     driver: bridge
+      - "4200:4200"
 
 volumes:
   mysql-data:
